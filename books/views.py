@@ -1,11 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 from .models import Book
 
 # Create your views here.
 def homepage(request):
-
+    if request.user.is_authenticated:
+        return redirect ("book_list")
     return render(request, "books/homepage.html")
 
 
