@@ -22,6 +22,7 @@ urlpatterns = [
     path("", book_views.homepage, name="home"),
     path('accounts/', include('registration.backends.default.urls')),
     path('books/', book_views.book_list, name='list_books'),
+    path('category/ <slug:slug>', book_views.categories_books, name="categories_books"),
     path("admin/", admin.site.urls),
     
 ]
